@@ -112,6 +112,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# EMAIL INTEGRATION
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = ''    #Enter the email from which you want to send email
+EMAIL_HOST_PASSWORD = ''      #Password of that email
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
