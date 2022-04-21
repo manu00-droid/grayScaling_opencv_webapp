@@ -15,7 +15,16 @@ def cvt2gray(request):
     url = request.POST['image_url']
     name = request.POST['name']
     email_id = request.POST['email_id']
-    downloader.file_downloader(url)
-    converter2gray.convert_gray()
-    send_email.sending_email(name, email_id)
-    return render(request, '/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/Htmls/display_image.html')
+    choice = request.POST['choice_im_vi']
+    if choice == 'image':
+        downloader.image_downloader(url)
+        converter2gray.image_convert2gray()
+        send_email(name, email_id)
+        return render(request,
+                      '/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/Htmls/display_image.html')
+
+    else:
+        downloader.video_downloader(url)
+        converter2gray.video_convert2gray()
+        return render(request, '/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/Htmls/video_thankyou'
+                               '.html')

@@ -1,10 +1,24 @@
-import cv2 as cv
 import wget
+from pytube import YouTube
+import pytube
 
 
-def file_downloader(url):
+def image_downloader(url):
     wget.download(url, '/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/downloads/image1')
 
-#
-# file_downloader(
-#     url='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.sz1kZWYU9QtL6ChRFMC8XQHaEK%26pid%3DApi&f=1')
+
+def video_downloader(url):
+    save_path = '/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/video_downloads/'
+    link = url
+    video_youtube_obj = YouTube(link)
+    video_youtube_obj.title = 'myvideo'
+    # myVideoStreams = video_youtube_obj.streams
+    # print(myVideoStreams.all())
+
+    video_stream_obj = video_youtube_obj.streams
+    mp4file = video_stream_obj.filter(mime_type='video/mp4')
+    mp4file.first().download(save_path)
+
+
+# video_downloader(
+#     url='https://www.youtube.com/watch?v=TAltjiZawV4')

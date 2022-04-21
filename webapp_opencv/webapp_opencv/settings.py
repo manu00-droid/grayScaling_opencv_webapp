@@ -53,7 +53,7 @@ ROOT_URLCONF = 'webapp_opencv.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/Htmls/'],
+        'DIRS': ['/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/Htmls/'],   #Location of HTML pages
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

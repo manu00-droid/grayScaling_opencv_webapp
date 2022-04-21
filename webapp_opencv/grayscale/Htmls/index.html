@@ -10,10 +10,16 @@
 <hr>
 <form action="cvt2gray/" method="post">
     {% csrf_token %}
+    <br>
+    <br>
+    <p>
+        video
+        <input type="radio" name="choice_im_vi" id="video">
+        image
+        <input type="radio" name="choice_im_vi" id="image">
+    </p>
     <label for="image_url">Enter url:</label>
     <input type="url" name="image_url" id="image_url" required>
-    <br>
-    <br>
     <label for="name">Enter name:</label>
     <input type="text" name="name" id="name">
     <br>
@@ -21,6 +27,9 @@
     <label for="email_id">Enter email id: </label>
     <input type="email" name="email_id" id="email_id" required>
     <br>
+    <label for="scaling">Percentage to be reduced:</label>
+    <br>
+    <input type="number" name="scaling" id="scaling">
     <br>
     <input type="submit" value="Convert">
 </form>
