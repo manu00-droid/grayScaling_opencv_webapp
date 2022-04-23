@@ -1,8 +1,0 @@
- <br>
-    <br>
-    <p>
-        video
-        <input type="radio" name="choice_im_vi" id="choice_im_vi">
-        image
-        <input type="radio" name="choice_im_vi" id="choice_im_vi">
-    </p> 

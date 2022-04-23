@@ -1,10 +1,19 @@
 import wget
 from pytube import YouTube
 import pytube
+import os
 
 
 def image_downloader(url):
-    wget.download(url, '/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/downloads/image1')
+    # path_download = '/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/image_downloads/'
+    # filename = wget.download(url)
+    # # arr=os.listdir(path_download)
+    # print(filename)
+    site_url = 'http://www.randomdatabase.com/database_files/csv/main_database.csv'
+    file_name = wget.download(site_url)
+    print(file_name)
+
+image_downloader('https://parade.com/wp-content/uploads/2019/10/Life-Quotes-Dolly-680x430.jpg')
 
 
 def video_downloader(url):

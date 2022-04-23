@@ -3,15 +3,17 @@ import os
 
 
 def image_convert2gray():
-    path = '/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/image_downloads/image1'
-    image = cv.imread(path)
+    path_of_scaled_img = '/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/image_scaled/imageScaled.jpg'
+    image = cv.imread(path_of_scaled_img)
     gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
-    cv.imwrite('/webapp_opencv/grayscale/images_converted/converted1.jpg',
-               gray)
-    os.remove(path)
+    path = '/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/images_converted'
+    cv.imwrite(os.path.join(path, 'converted_img.jpg'), gray)
+    os.remove(path_of_scaled_img)
+
+# image_convert2gray()
 
 
-def video_convert2gray():
+def video_convert2gray(rescale_to):
     capture = cv.VideoCapture('/home/manav/PycharmProjects/django_openCV/webapp_opencv/grayscale/video_downloads'
                               '/myvideomp4.mp4')
     frame_width = int(capture.get(3))
@@ -22,8 +24,9 @@ def video_convert2gray():
 
     while True:
         isTrue, frame = capture.read()
+        frame_resized = scaler.rescale_frame(frame, rescale_to)
         if isTrue:
-            gray_frame = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+            gray_frame = cv.cvtColor(frame_resized, cv.COLOR_BGR2GRAY)
             newVideo.write(gray_frame)
         else:
             break
@@ -31,4 +34,4 @@ def video_convert2gray():
     newVideo.release()
 
 
-# video_convert2gray()
+# video_convert2gray(0.5)
